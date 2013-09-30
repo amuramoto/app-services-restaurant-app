@@ -13,36 +13,38 @@
 			orgName:'YOUR APIGEE ORG NAME',
 			appName:'sandbox'
 		});
-
-	    var restaurants = new Apigee.Collection( { "client":apigeeClient, "type":"restaurants" } );
-	
+		
+		var restaurants = new Apigee.Collection( { "client":apigeeClient, "type":"restaurants" } );
+		
 		$(document).ready( function(){
-	        // Actual network call
-	        restaurants.fetch(
-	
-	            // Success Callback
-	            function () {
-					
+			// Actual network call
+			restaurants.fetch(
+			
+				// Success Callback
+				function () {
+				
 					// Empty the current list before loading new data in
-	                $('#restaurant-list').empty();
-	         
-	                while ( restaurants.hasNextEntity() ) {
-	
-	                    var current_restaurant = restaurants.getNextEntity();
-	
-	                    // Output the list on the page
-	                    $('#restaurant-list').append('<li><h3>'+current_restaurant.get('name')+'</h3><p>'+current_restaurant.get('city')+'</p></li>');
-	                }
-	                
-	                // Re-apply jQuery Mobile styles
-	                $('#restaurant-list').listview('refresh');
-	            },
-	
-	            // Failure Callback
-	            function () { alert("read failed"); }
-	        );  
+					$('#restaurant-list').empty();
+					
+					while ( restaurants.hasNextEntity() ) {
+					
+						var current_restaurant = restaurants.getNextEntity();
+						
+						// Output the list on the page
+						$('#restaurant-list').append('<li><h3>'+current_restaurant.get('name')+'</h3><p>'+current_restaurant.get('city')+'</p></li>');
+					}
+					
+					// Re-apply jQuery Mobile styles
+					$('#restaurant-list').listview('refresh');
+
+				},
+				
+				// Failure Callback
+				function () { alert("read failed"); }
+			);  
 		});
-	</script>      
+	</script>    
+</head>	  
 <body>
   <div data-role="page" data-control-title="Home" id="list-page">
       <div data-theme="b" data-role="header">

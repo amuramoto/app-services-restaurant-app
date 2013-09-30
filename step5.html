@@ -11,14 +11,14 @@
   <script type="text/javascript">
 		
 		var apigeeClient = new Apigee.Client({
-		  orgName:'YOUR APIGEE ORG NAME',
-		  appName:'sandbox'
-		 });
-		 
+			orgName:'YOUR APIGEE ORG NAME',
+			appName:'sandbox'
+		});
+		
 		var restaurants = null;
 		
 		$(document).ready( function(){
-			
+		
 			$("#add-button").bind("click",addRestaurant);
 			navigator.geolocation.getCurrentPosition(loadList);				
 			//loadList();
@@ -27,30 +27,30 @@
 		// Function to load our list of restuarants
 		function loadList (location) {
 			restaurants = new Apigee.Collection( { "client":apigeeClient, "type":"restaurants", "qs":{"ql":"location within 16000 of "+location.coords.latitude+","+location.coords.longitude} } );
-            // Actual network call
-            restaurants.fetch(
-
-                // Success Callback
-                function () {
-					
+			// Actual network call
+			restaurants.fetch(
+			
+				// Success Callback
+				function () {
+				
 					// Empty the current list before loading new data in
-                    $('#restaurant-list').empty();
-             
-                    while ( restaurants.hasNextEntity() ) {
-
-                        var current_restaurant = restaurants.getNextEntity();
-
-                        // Output the list on the page
-                        $('#restaurant-list').append('<li><h3>'+current_restaurant.get('name')+'</h3><p>'+current_restaurant.get('city')+'</p></li>');
-                    }
-                    
-                    // Re-apply jQuery Mobile styles
-                    $('#restaurant-list').listview('refresh');
-                },
-
-                // Failure Callback
-                function () { alert("read failed"); }
-            );  
+					$('#restaurant-list').empty();
+					
+					while ( restaurants.hasNextEntity() ) {
+					
+						var current_restaurant = restaurants.getNextEntity();
+					
+						// Output the list on the page
+						$('#restaurant-list').append('<li><h3>'+current_restaurant.get('name')+'</h3><p>'+current_restaurant.get('city')+'</p></li>');
+					}
+					
+					// Re-apply jQuery Mobile styles
+					$('#restaurant-list').listview('refresh');
+				},
+				
+				// Failure Callback
+				function () { alert("read failed"); }
+			);  
 		}
 		
 		function addRestaurant (){
@@ -60,18 +60,17 @@
 			}
 			
 			restaurants.addEntity(newRestaurant, function(error, response){
-					if (error){
-					console.log('s');
-						alert("write failed");
-					} else {
-						//Reload the list of restaurants
-						loadList();
-						// Return to the restaurant list
-						history.back();
-					}
-					
+				
+				if (error){				
+					alert("write failed");
+				} else {
+					//Reload the list of restaurants
+					loadList();
+					// Return to the restaurant list
+					history.back();
 				}
-			);
+				
+			});
 		}
 	</script>      
 <body>
