@@ -56,7 +56,7 @@
 				"city":$("#city-field").val()
 			}
 			
-			createEntity(newRestaurant, function(error, response){
+			apigeeClient.createEntity(newRestaurant, function(error, response){
 				if (error){
 					alert("write failed");
 				} else {
