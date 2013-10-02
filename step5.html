@@ -55,11 +55,12 @@
 		
 		function addRestaurant (){
 			var newRestaurant = {
+				"type":"restaurant",
 				"name":$("#name-field").val(),
 				"city":$("#city-field").val()
 			}
 			
-			restaurants.addEntity(newRestaurant, function(error, response){
+			createEntity(newRestaurant, function(error, response){
 				
 				if (error){				
 					alert("write failed");
