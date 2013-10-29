@@ -1,0 +1,28 @@
+{
+	"name":"New Park Tavern",
+	"city":"Jersey City",
+	"location":{
+		"latitude": 40.72051,
+		"longitude": -74.081672
+	}
+}
+
+
+{
+	"name":"Tops Diner",
+	"city":"Newark",
+	"location":{
+		"latitude": 40.750541,
+		"Longitude": -74.164027
+	}
+}
+
+
+{
+	"name":"Fiore's Deli",
+	"city":"Hoboken",
+	"location":{
+		"latitude": 40.742998,
+		"longitude": -74.036096
+	}
+}
