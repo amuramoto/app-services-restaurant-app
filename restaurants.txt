@@ -1,28 +1,28 @@
 {
-	"name":"New Park Tavern",
-	"city":"Jersey City",
+	"name":"The Flying Biscuit Cafe",
+	"city":"Atlanta",
 	"location":{
-		"latitude": 40.72051,
-		"longitude": -74.081672
+		"latitude": 33.781894,
+		"longitude": -84.380199
 	}
 }
 
 
 {
-	"name":"Tops Diner",
-	"city":"Newark",
+	"name":"Canoe",
+	"city":"Atlanta",
 	"location":{
-		"latitude": 40.750541,
-		"Longitude": -74.164027
+		"latitude": 33.859547,
+		"Longitude": -84.45543
 	}
 }
 
 
 {
-	"name":"Fiore's Deli",
-	"city":"Hoboken",
+	"name":"South City Kitchen",
+	"city":"Smyrna",
 	"location":{
-		"latitude": 40.742998,
-		"longitude": -74.036096
+		"latitude": 33.84931,
+		"longitude": -84.492257
 	}
 }
