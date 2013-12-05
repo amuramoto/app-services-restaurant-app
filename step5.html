@@ -26,7 +26,7 @@
 		
 		// Function to load our list of restuarants
 		function loadList (location) {
-			restaurants = new Apigee.Collection( { "client":apigeeClient, "type":"restaurants", "qs":{"ql":"location within 1600 of "+location.coords.latitude+","+location.coords.longitude} } );
+			restaurants = new Apigee.Collection( { "client":apigeeClient, "type":"restaurants", "qs":{"ql":"location within 16000 of "+location.coords.latitude+","+location.coords.longitude} } );
 			// Actual network call
 			restaurants.fetch(
 			
